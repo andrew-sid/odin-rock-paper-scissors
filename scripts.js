@@ -14,19 +14,16 @@ function getHumanChoice() {
     while (true) {
         userPrint = prompt("Choice rock, paper or scissors: ");
 
-        try {
-            userPrint = userPrint.toLowerCase();
+        if (userPrint === null) return undefined;
 
-            if (
-                userPrint === "rock" ||
-                userPrint === "paper" ||
-                userPrint === "scissors"
-            ) {
-                return userPrint;
-            } else {
-                alert("Incorrect value, please try again!");
-            }
-        } catch {
+        userPrint = userPrint.toLowerCase();
+        if (
+            userPrint === "rock" ||
+            userPrint === "paper" ||
+            userPrint === "scissors"
+        ) {
+            return userPrint;
+        } else {
             alert("Incorrect value, please try again!");
         }
     }
@@ -61,9 +58,11 @@ function playGame() {
                 console.log("You win! Scissors beats Paper");
                 humanScore++;
             }
-        }
-        else {
+        } else if (humChoice === compChoice) {
             console.log("TIE!");
+        } else {
+            console.log("You lose!");
+            computerScore++;
         }
     }
 
