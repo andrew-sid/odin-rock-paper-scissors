@@ -14,17 +14,19 @@ function getHumanChoice() {
     while (true) {
         userPrint = prompt("Choice rock, paper or scissors: ");
 
-        if (userPrint === null) break;
+        try {
+            userPrint = userPrint.toLowerCase();
 
-        userPrint = userPrint.toLowerCase();
-
-        if (
-            userPrint === "rock" ||
-            userPrint === "paper" ||
-            userPrint === "scissors"
-        ) {
-            return userPrint;
-        } else {
+            if (
+                userPrint === "rock" ||
+                userPrint === "paper" ||
+                userPrint === "scissors"
+            ) {
+                return userPrint;
+            } else {
+                alert("Incorrect value, please try again!");
+            }
+        } catch {
             alert("Incorrect value, please try again!");
         }
     }
@@ -35,11 +37,6 @@ function playGame() {
     let computerScore = 0;
 
     function playRound(humChoice, compChoice) {
-        if (humChoice === undefined) {
-            console.log("Please, reload page for new game");
-            return;
-        }
-
         if (humChoice === "rock") {
             if (compChoice === "paper") {
                 console.log("You lose! Paper beats Rock");
@@ -65,18 +62,25 @@ function playGame() {
                 humanScore++;
             }
         }
+        else {
+            console.log("TIE!");
+        }
     }
 
-    for (let i = 0; i < 5; i ++) {
+    for (let i = 0; i < 5; i++) {
         const humanChoice = getHumanChoice();
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
 
     if (humanScore > computerScore) {
-        console.log(`The winner is HUMAN. Score ${humanScore}:${computerScore}`);
+        console.log(
+            `The winner is HUMAN. Score ${humanScore}:${computerScore}`
+        );
     } else {
-        console.log(`The winner is COMPUTER. Score ${computerScore}:${humanScore}`);
+        console.log(
+            `The winner is COMPUTER. Score ${computerScore}:${humanScore}`
+        );
     }
 
     console.log("Reload page for new game");
