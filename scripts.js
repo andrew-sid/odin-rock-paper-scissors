@@ -1,11 +1,12 @@
 function getComputerChoice() {
-  let choices = ['rock', 'paper', 'scissors'];
+  let choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * choices.length)]; //get random item of choices array
 }
 
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
+  let winner;
   const resultPrint = document.querySelector(".resultPrint");
 
   function playRound(event) {
@@ -44,12 +45,9 @@ function playGame() {
     button.addEventListener("click", (e) => {
       playRound(e);
 
-      if (humanScore === 5) {
-        resultPrint.textContent = `HUMAN WIN THE GAME! Score: ${humanScore}:${computerScore}`;
-        computerScore = 0;
-        humanScore = 0;
-      } else if (computerScore === 5) {
-        resultPrint.textContent = `COMPUTER WIN THE GAME! Score: ${humanScore}:${computerScore}`;
+      if (humanScore === 5 || computerScore === 5) {
+        winner = humanScore === 5 ? "HUMAN" : "COMPUTER";
+        resultPrint.textContent = `THE WINNER IS ${winner}! Score: ${humanScore}:${computerScore}.`;
         computerScore = 0;
         humanScore = 0;
       }
