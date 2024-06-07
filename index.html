@@ -5,8 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="./scripts.js" defer></script>
         <title>Rock Paper Scissors</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+                font-size: 2rem;
+            }
+        </style>
     </head>
     <body>
-        <h1>Rock Paper Scissors (console game)</h1>
+        <h1>Rock Paper Scissors game</h1>
+        <div class="buttons">
+            <button data-choice="rock" class="choiceBtn rockBtn">Rock</button>
+            <button data-choice="paper" class="choiceBtn paperBtn">Paper</button>
+            <button data-choice="scissors" class="choiceBtn scissorstn">Scissors</button>
+        </div>
+        <div class="resultPrint"></div>
     </body>
 </html>
