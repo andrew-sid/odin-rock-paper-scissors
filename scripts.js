@@ -10,7 +10,6 @@ function playGame() {
 
   function playRound(event) {
     const compChoice = getComputerChoice();
-    console.log(compChoice);
     const humChoice = event.target.dataset.choice;
     if (humChoice === "rock") {
       if (compChoice === "paper") {
