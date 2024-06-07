@@ -1,12 +1,6 @@
 function getComputerChoice() {
-  let randNum = Math.random();
-  if (randNum < 0.33) {
-    return "rock";
-  } else if (randNum >= 0.33 && randNum < 0.66) {
-    return "paper";
-  } else {
-    return "scissors";
-  }
+  let choices = ['rock', 'paper', 'scissors'];
+  return choices[Math.floor(Math.random() * choices.length)]; //get random item of choices array
 }
 
 function playGame() {
@@ -16,6 +10,7 @@ function playGame() {
 
   function playRound(event) {
     const compChoice = getComputerChoice();
+    console.log(compChoice);
     const humChoice = event.target.dataset.choice;
     if (humChoice === "rock") {
       if (compChoice === "paper") {
